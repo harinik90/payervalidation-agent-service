@@ -24,14 +24,12 @@ conda-meta/
 environment.yml
 
 # ── Data (local only — never commit PHI or large binaries) ───────────────────
-data/raw/
 data/processed/
 data/chroma/
 data/db/
 data/audit/
 
 # Keep directory structure in git
-!data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/chroma/.gitkeep
 !data/db/.gitkeep
