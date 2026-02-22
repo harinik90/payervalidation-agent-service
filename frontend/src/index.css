@@ -1,0 +1,276 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  background: #f0f4f8;
+  color: #1a202c;
+  min-height: 100vh;
+}
+
+/* ── Layout ── */
+.app { display: flex; flex-direction: column; min-height: 100vh; }
+
+.app-header {
+  background: #1e3a5f;
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.app-header h1 { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
+.app-header .subtitle { font-size: 12px; color: #94b8d8; margin-left: auto; }
+
+.app-body {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 16px;
+  padding: 16px;
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Cards ── */
+.card {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.card + .card { margin-top: 12px; }
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2d3748;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* ── Case Selector ── */
+.case-select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 13px;
+  background: white;
+  color: #2d3748;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23718096' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+.case-select:focus { border-color: #3182ce; box-shadow: 0 0 0 2px rgba(49,130,206,0.2); }
+
+/* ── Case Info Card ── */
+.case-info {
+  margin-top: 12px;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 13px;
+}
+.case-info-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.case-info-label { color: #718096; font-weight: 500; flex-shrink: 0; margin-right: 8px; }
+.case-info-value { color: #2d3748; text-align: right; }
+.case-info-divider { border: none; border-top: 1px solid #e2e8f0; margin: 8px 0; }
+
+/* ── Expected decision badge in selector ── */
+.expected-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.expected-APPROVE        { background: #c6f6d5; color: #276749; }
+.expected-PEND           { background: #fefcbf; color: #744210; }
+.expected-DENY           { background: #fed7d7; color: #9b2c2c; }
+.expected-DENIED_HARD_STOP { background: #1a202c; color: #fff; }
+.expected-RETURNED_FOR_CORRECTION { background: #feebc8; color: #7b341e; }
+
+/* ── Coding errors chip list ── */
+.coding-errors { margin-top: 8px; }
+.coding-error-chip {
+  display: inline-block;
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #c53030;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 11px;
+  margin: 2px 3px 2px 0;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* ── Form ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.form-group { display: flex; flex-direction: column; gap: 4px; }
+.form-group.full-width { grid-column: 1 / -1; }
+
+label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #2d3748;
+  background: white;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 2px rgba(49,130,206,0.15);
+}
+textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
+
+.form-hint { font-size: 11px; color: #a0aec0; margin-top: 2px; }
+
+/* ── Submit button ── */
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  background: #2b6cb0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-submit:hover:not(:disabled) { background: #2c5282; }
+.btn-submit:disabled { background: #a0aec0; cursor: not-allowed; }
+
+/* ── Spinner ── */
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Decision result panel ── */
+.result-card { margin-top: 12px; }
+
+.decision-banner {
+  padding: 14px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.decision-icon { font-size: 22px; }
+.decision-text { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+.decision-sub { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+
+.banner-APPROVE        { background: #f0fff4; border: 1.5px solid #68d391; color: #276749; }
+.banner-PEND           { background: #fffff0; border: 1.5px solid #f6e05e; color: #744210; }
+.banner-DENY           { background: #fff5f5; border: 1.5px solid #fc8181; color: #9b2c2c; }
+.banner-DENIED         { background: #1a202c; border: 1.5px solid #4a5568; color: #fff; }
+.banner-RETURNED_FOR_CORRECTION { background: #fffaf0; border: 1.5px solid #f6ad55; color: #7b341e; }
+
+/* ── Result detail rows ── */
+.result-section { margin-bottom: 14px; }
+.result-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #718096;
+  margin-bottom: 6px;
+}
+.result-reason {
+  background: #f7fafc;
+  border-left: 3px solid #a0aec0;
+  padding: 8px 10px;
+  border-radius: 0 4px 4px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #2d3748;
+}
+.result-tag {
+  display: inline-block;
+  background: #ebf8ff;
+  border: 1px solid #bee3f8;
+  color: #2b6cb0;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 12px;
+  margin: 2px 4px 2px 0;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+.result-tag.warn { background: #fffaf0; border-color: #f6ad55; color: #7b341e; }
+
+/* ── Error state ── */
+.error-box {
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  border-radius: 6px;
+  padding: 12px;
+  color: #9b2c2c;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+/* ── Submission note (WF2/WF4/WF5/WF6 callout) ── */
+.test-note {
+  background: #ebf8ff;
+  border: 1px solid #bee3f8;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: #2c5282;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.test-note strong { display: block; margin-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; }
+
+/* ── Scrollable right panel ── */
+.right-panel { display: flex; flex-direction: column; overflow: auto; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .app-body { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,78 @@
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.Python
+
+# ── Conda (local setup only — not committed) ──────────────────────────────────
+conda-meta/
+environment.yml
+
+# ── Data (local only — never commit PHI or large binaries) ───────────────────
+data/raw/
+data/processed/
+data/chroma/
+data/db/
+data/audit/
+
+# Keep directory structure in git
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/chroma/.gitkeep
+!data/db/.gitkeep
+!data/audit/.gitkeep
+
+# ── Test artifacts ────────────────────────────────────────────────────────────
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+
+# ── Ruff / mypy ───────────────────────────────────────────────────────────────
+.ruff_cache/
+.mypy_cache/
+
+# ── Node / Frontend ───────────────────────────────────────────────────────────
+node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Azure / Bicep ─────────────────────────────────────────────────────────────
+.azure/
+*.tfstate
+*.tfstate.backup
+
+# ── Temp / Claude artifacts ───────────────────────────────────────────────────
+tmpclaude-*
+nul
+=0.115.0
